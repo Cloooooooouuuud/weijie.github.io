@@ -6,95 +6,179 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
         body {
-            margin: 0 auto;
-            max-width: 700px;
-            padding: 30px;
+            margin: 0;
             font-family: Arial, sans-serif;
             line-height: 1.6;
+            scroll-behavior: smooth;
         }
-        h1, h2 {
+        /* ----- NAVBAR ----- */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: #ffffff;
+            border-bottom: 1px solid #ddd;
+            padding: 10px 0;
+            z-index: 10;
+        }
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            padding: 0;
+            margin: 0;
+        }
+        .navbar a {
+            text-decoration: none;
+            font-weight: bold;
+            color: #333;
+        }
+        .navbar a:hover {
+            color: #0073e6;
+        }
+
+        /* ----- PAGE CONTENT ----- */
+        .container {
+            max-width: 800px;
+            margin: 100px auto 50px auto;
+            padding: 0 20px;
+        }
+        h2 {
+            margin-top: 50px;
             color: #222;
         }
-        .section {
-            margin-bottom: 40px;
+
+        /* Profile image */
+        .profile-pic {
+            width: 160px;
+            border-radius: 50%;
+            float: right;
+            margin-left: 20px;
+            margin-bottom: 10px;
         }
-        .contact {
-            font-size: 1rem;
-            color: #444;
-        }
-        ul { margin-top: -10px; }
     </style>
 </head>
 
 <body>
 
-<h1>Weijie Zhou</h1>
-
-<p class="contact">
-    Cornell University, Ithaca, NY<br>
-    <b>Email:</b> wz388@cornell.edu<br>
-    <b>Phone:</b> +1 607-339-1845
-</p>
-
-<hr>
-
-<div class="section">
-    <h2>Education</h2>
-    <p><b>Cornell University</b>, Ithaca, NY<br>
-       B.A. in Computer Science and Mathematics (Expected Jun 2027)<br>
-       GPA: 3.782/4.000</p>
-    <p><b>Relevant coursework:</b> NLP, Machine Learning, Computer Graphics, Computer Systems, Linear Algebra, Honors Analysis, Number Theory</p>
-</div>
-
-<div class="section">
-    <h2>Research Experience</h2>
-
-    <p><b>Thorsten Joachims Group</b>, Cornell University (Jan 2025 – Present)<br>
-    Research Assistant</p>
+<!-- NAVIGATION -->
+<div class="navbar">
     <ul>
-        <li>Work on steerability evaluation of LLM-based recommender systems.</li>
-        <li>Designed evaluation pipelines measuring how human-interpretable steering commands change ranking outcomes.</li>
-        <li>Developed sampling methods + evaluation metrics using review-based tags.</li>
-        <li>Co-authored analysis for a paper proposing a new LLM-steerable recommendation evaluation framework.</li>
-    </ul>
-
-    <p><b>Design + Augmented Intelligence Lab</b>, Cornell University (Sep 2024 – May 2025)<br>
-    Research Assistant</p>
-    <ul>
-        <li>Applied Bayesian + Kalman filtering to analyze VR user behavior.</li>
-        <li>Built ML pipelines for extracting decision-making patterns in spatial cognition experiments.</li>
-        <li>Current work: applying reinforcement learning to improve VR navigation + HCI.</li>
+        <li><a href="#intro">Intro</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#research">Research Interest</a></li>
+        <li><a href="#experience">Research Experience</a></li>
+        <li><a href="#published">Published</a></li>
+        <li><a href="#fun">Fun Fact</a></li>
     </ul>
 </div>
 
-<div class="section">
-    <h2>Selected Projects</h2>
+<div class="container">
 
-    <p><b>Analogy Prompting Evaluation (LLM Reasoning Research)</b> (Oct 2025 – Present)</p>
-    <ul>
-        <li>Studying how analogy example diversity affects LLM reasoning on math and logic tasks.</li>
-        <li>Built few-shot generation templates, CoT extraction, and answer parsing systems.</li>
-        <li>Created inference/scoring/statistical analysis pipeline.</li>
-    </ul>
+    <!-- INTRO -->
+    <section id="intro">
+        <h2>Intro</h2>
 
-    <p><b>ARC-AGI Competition</b> (Jun 2025 – Nov 2025)</p>
-    <ul>
-        <li>Built a custom CoT pipeline for ARC tasks using vLLM + LoRA.</li>
-        <li>Implemented RL loop rewarding correct symbolic patterns.</li>
-        <li>Developed JSON-based comparison tools and failure analysis methods.</li>
-    </ul>
+        <!-- Replace this image with your own -->
+        <img src="selfie.png" 
+             class="profile-pic" alt="Profile Photo">
 
-    <p><b>Emotion Classification via NLP</b> (Sep 2024 – Dec 2024)</p>
-    <ul>
-        <li>Led a team to build an end-to-end deep learning system using ResNets in PyTorch.</li>
-        <li>Created advanced text preprocessing and augmentation pipelines.</li>
-    </ul>
-</div>
+        <p>
+            Hi! I'm <b>Weijie Zhou</b>, a junior studying <b>Computer Science + Mathematics</b> 
+            at <b>Cornell University</b>. I’m broadly interested in deep learning, model behavior, 
+            and how reasoning emerges in large models.
+        </p>
+    </section>
 
-<div class="section">
-    <h2>Skills</h2>
-    <p><b>Languages:</b> Python (PyTorch, scikit), Java, C, JavaScript, OCaml, SwiftUI</p>
-    <p><b>Tools:</b> LaTeX, SLURM, HTML</p>
+    <!-- CONTACT -->
+    <section id="contact">
+        <h2>Contact</h2>
+        <p><b>Email:</b> wz388@cornell.edu</p>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education">
+        <h2>Education</h2>
+        <p><b>Cornell University</b>, Ithaca NY<br>
+           Junior — B.A. in Computer Science & Mathematics</p>
+
+        <p><b>Relevant coursework:</b><br>
+            Intro to Natural Language Processing, Intro to Machine Learning,  
+            Computer Graphics, Computer Systems Organization and Programming,  
+            Linear Algebra, Honors Mathematical Analysis, Number Theory
+        </p>
+    </section>
+
+    <!-- RESEARCH INTEREST -->
+    <section id="research">
+        <h2>Research Interest</h2>
+        <p>
+            I am broadly interested in how deep learning models represent and reason about the world. 
+            I’m especially curious about self-supervised and generative objectives—contrastive learning, masked prediction, 
+            diffusion, and multimodal world models—and how these simple objectives give rise to structured internal 
+            representations that support downstream reasoning.
+        </p>
+
+        <p>
+            Recently, I’ve been exploring chain-of-thought reasoning, analogy prompting, model interpretability, 
+            and how representation structure affects reasoning robustness. Long term, I hope to develop empirical frameworks 
+            that connect model behavior with principles from causal inference, continual learning, and cognitive science— 
+            ultimately toward building models that are more interpretable, more stable over time, and more aligned with 
+            how humans reason.
+        </p>
+    </section>
+
+    <!-- RESEARCH EXPERIENCE -->
+    <section id="experience">
+        <h2>Research Experience</h2>
+
+        <p><b>Thorsten Joachims Group</b>, Cornell University (Jan 2025 – Present)<br>
+        Research Assistant</p>
+        <ul>
+            <li>Studying steerability evaluation of LLM-based recommender systems.</li>
+            <li>Designed LLM-driven evaluation pipelines for human-interpretable steering commands.</li>
+            <li>Developed sampling strategies and evaluation metrics using real review-based tags.</li>
+            <li>Co-authored analysis for a new evaluation framework linking human preferences with system behavior.</li>
+        </ul>
+
+        <p><b>Design + Augmented Intelligence Lab</b>, Cornell University (Sep 2024 – May 2025)<br>
+        Research Assistant</p>
+        <ul>
+            <li>Applied Bayesian + Kalman filtering to analyze user behavior in VR environments.</li>
+            <li>Built ML pipelines for spatial cognition and decision-pattern extraction.</li>
+            <li>Exploring RL-based approaches for VR navigation and human-computer interaction.</li>
+        </ul>
+    </section>
+
+    <!-- PUBLISHED -->
+    <section id="published">
+        <h2>Published / In Progress</h2>
+
+        <p><b>1. Analogy-Prompting Effects on LLM Reasoning (in progress)</b><br>
+        Designed a controlled evaluation framework to study how analogy diversity affects 
+        mathematical and logical reasoning in large language models. Includes few-shot template design, 
+        chain-of-thought extraction, difficulty scaling, and error-type analysis.</p>
+
+        <p><b>2. Steerable LLM-Based Recommendation Evaluation (in progress)</b><br>
+        Co-authored a pipeline for evaluating how human-interpretable steering commands 
+        (e.g., “more art-house films”) shift recommendation rankings.  
+        Developed sampling methods, dataset alignment, and human-grounded tag evaluation metrics.
+        </p>
+    </section>
+
+    <!-- FUN FACT -->
+    <section id="fun">
+        <h2>Fun Fact</h2>
+        <ul>
+            <li>I ski whenever I can ❄️</li>
+            <li>I’m an F1 fan (McLaren + Lando Norris!) 🏎️</li>
+            <li>I write poetry sometimes ✒️</li>
+            <li>I grew up playing Pokémon — still love it 🟡</li>
+        </ul>
+    </section>
+
 </div>
 
 </body>
