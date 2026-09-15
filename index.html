@@ -122,42 +122,16 @@
     }
 
     .hero p {
-      max-width: 710px;
+      max-width: 720px;
       margin: 0 0 15px;
       font-size: 18px;
       line-height: 1.62;
     }
 
-    .hero-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 25px;
-    }
-
-    .button {
-      display: inline-flex;
-      align-items: center;
-      min-height: 39px;
-      padding: 8px 13px;
-      border: 1px solid #cfc7bf;
-      border-radius: 7px;
-      background: #fff;
-      font-size: 14px;
-      font-weight: 600;
-      text-decoration: none;
-    }
-
-    .button.primary {
-      border-color: var(--accent);
-      background: var(--accent);
-      color: #fff;
-    }
-
-    .button:hover {
-      border-color: var(--accent);
-      background: #fff;
-      color: var(--accent);
+    .contact-line {
+      margin-top: 23px !important;
+      color: #4f4a45;
+      font-size: 15px !important;
     }
 
     .profile-pic {
@@ -180,6 +154,11 @@
       gap: 28px;
       margin-bottom: 24px;
       align-items: start;
+    }
+
+    .section-head.simple {
+      display: block;
+      margin-bottom: 20px;
     }
 
     h2 {
@@ -388,8 +367,13 @@
           <p class="role">B.A. Computer Science &amp; Mathematics · Expected May 2027</p>
 
           <p>
-            I am a senior at Cornell studying computer science and mathematics. I work on language models and interactive AI systems,
-            especially decision revision, long-horizon reasoning, human feedback, and evaluation.
+            I am a senior at Cornell studying computer science and mathematics. I study how AI systems make and revise decisions over time:
+            when a language model should keep reasoning, change an earlier choice, or respond to a user's correction.
+          </p>
+          <p>
+            My work combines controlled evaluation with learning methods. Recent projects study decision backtracking in language models,
+            learn writing preferences from lightweight feedback, and test whether reasoning metrics measure the behavior they claim to measure.
+            I am especially interested in systems whose decisions can be inspected, corrected, and improved through interaction.
           </p>
           <p>
             At Cornell, I work with
@@ -397,12 +381,11 @@
             <a href="https://yoavartzi.com/" target="_blank" rel="noopener">Yoav Artzi</a>, and
             <a href="https://as.cornell.edu/people/daniel-halpern-leistner" target="_blank" rel="noopener">Daniel Halpern-Leistner</a>.
           </p>
-
-          <div class="hero-links">
-            <a class="button primary" href="mailto:wz388@cornell.edu">Email</a>
-            <a class="button" href="https://github.com/Cloooooooouuuud" target="_blank" rel="noopener">GitHub</a>
-            <a class="button" href="https://arxiv.org/abs/2601.21105" target="_blank" rel="noopener">SteerEval</a>
-          </div>
+          <p class="contact-line">
+            <a href="mailto:wz388@cornell.edu">wz388@cornell.edu</a>
+            &nbsp;·&nbsp;
+            <a href="https://github.com/Cloooooooouuuud" target="_blank" rel="noopener">GitHub</a>
+          </p>
         </div>
 
         <img src="selfie.png" class="profile-pic" alt="Portrait of Weijie Zhou">
@@ -450,12 +433,8 @@
             <p>Reached the top 20 on the ARC-AGI-3 competition leaderboard with an interactive agent using memory-preserving restarts and failure analysis.</p>
           </div>
           <div class="news-item">
-            <div class="news-date">2026</div>
-            <p><a href="https://arxiv.org/abs/2601.21105" target="_blank" rel="noopener">SteerEval</a> is available on arXiv.</p>
-          </div>
-          <div class="news-item">
             <div class="news-date">Spring 2026</div>
-            <p>Started research with the Yoav Artzi Group and Cornell Math+AI Lab.</p>
+            <p><a href="https://arxiv.org/abs/2601.21105" target="_blank" rel="noopener">SteerEval</a> is available on arXiv.</p>
           </div>
         </div>
       </section>
@@ -506,9 +485,8 @@
       </section>
 
       <section id="projects">
-        <div class="section-head">
+        <div class="section-head simple">
           <h2>Current projects</h2>
-          <p class="section-copy">Ongoing work that is not represented by a separate publication entry above.</p>
         </div>
 
         <div class="project-grid">
