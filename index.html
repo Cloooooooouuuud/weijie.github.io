@@ -8,24 +8,27 @@
   <style>
     :root {
       --text: #171717;
-      --muted: #66635f;
-      --line: #dedbd6;
-      --soft: #f7f5f2;
+      --muted: #66615b;
+      --line: #d8d2cb;
+      --soft-line: #ebe7e1;
+      --page: #f4f1ed;
+      --panel: #ffffff;
+      --soft: #faf8f5;
       --accent: #b31b1b;
-      --max: 980px;
+      --max: 1040px;
     }
 
     * { box-sizing: border-box; }
 
     html {
       scroll-behavior: smooth;
-      scroll-padding-top: 84px;
+      scroll-padding-top: 86px;
     }
 
     body {
       margin: 0;
+      background: var(--page);
       color: var(--text);
-      background: #fff;
       font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
       font-size: 16px;
       line-height: 1.65;
@@ -34,9 +37,9 @@
 
     a {
       color: inherit;
-      text-decoration-color: #b8b3ad;
       text-underline-offset: 3px;
       text-decoration-thickness: 1px;
+      text-decoration-color: #b8b1a9;
     }
 
     a:hover {
@@ -44,54 +47,56 @@
       text-decoration-color: var(--accent);
     }
 
+    .site-shell {
+      width: min(calc(100% - 36px), var(--max));
+      margin: 28px auto;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      overflow: hidden;
+    }
+
     .nav-wrap {
       position: sticky;
       top: 0;
       z-index: 20;
-      border-bottom: 1px solid rgba(222, 219, 214, 0.9);
-      background: rgba(255, 255, 255, 0.94);
+      background: rgba(255, 255, 255, 0.96);
+      border-bottom: 1px solid var(--line);
       backdrop-filter: blur(10px);
     }
 
     nav {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 17px 24px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 24px;
+      gap: 22px;
+      padding: 16px 28px;
     }
 
     .brand {
       font-weight: 700;
       text-decoration: none;
-      letter-spacing: -0.01em;
+      letter-spacing: -0.015em;
     }
 
     .nav-links {
       display: flex;
-      gap: 21px;
       align-items: center;
+      gap: 20px;
       font-size: 14px;
       white-space: nowrap;
     }
 
     .nav-links a { text-decoration: none; }
 
-    main {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 68px 24px 90px;
-    }
+    main { padding: 0 28px 34px; }
 
     .hero {
       display: grid;
-      grid-template-columns: 1fr 205px;
-      gap: 58px;
+      grid-template-columns: 1fr 190px;
+      gap: 52px;
       align-items: start;
-      padding-bottom: 60px;
-      border-bottom: 1px solid var(--line);
+      padding: 58px 0 54px;
     }
 
     .eyebrow {
@@ -105,20 +110,20 @@
 
     h1 {
       margin: 0 0 10px;
-      font-size: clamp(42px, 7vw, 62px);
-      line-height: 1.03;
+      font-size: clamp(42px, 7vw, 60px);
+      line-height: 1.04;
       letter-spacing: -0.045em;
     }
 
     .role {
-      margin: 0 0 25px;
+      margin: 0 0 24px;
       color: var(--muted);
       font-size: 17px;
     }
 
     .hero p {
-      max-width: 700px;
-      margin: 0 0 16px;
+      max-width: 710px;
+      margin: 0 0 15px;
       font-size: 18px;
       line-height: 1.62;
     }
@@ -127,15 +132,15 @@
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      margin-top: 26px;
+      margin-top: 25px;
     }
 
     .button {
       display: inline-flex;
       align-items: center;
-      min-height: 40px;
+      min-height: 39px;
       padding: 8px 13px;
-      border: 1px solid #cfcac3;
+      border: 1px solid #cfc7bf;
       border-radius: 7px;
       background: #fff;
       font-size: 14px;
@@ -144,33 +149,34 @@
     }
 
     .button.primary {
-      color: #fff;
       border-color: var(--accent);
       background: var(--accent);
+      color: #fff;
     }
 
     .button:hover {
-      color: var(--accent);
       border-color: var(--accent);
       background: #fff;
+      color: var(--accent);
     }
 
     .profile-pic {
       display: block;
-      width: 205px;
-      height: 205px;
+      width: 190px;
+      height: 190px;
       object-fit: cover;
-      border-radius: 16px;
       border: 1px solid var(--line);
+      border-radius: 10px;
     }
 
     section {
-      padding: 58px 0 8px;
+      border-top: 1px solid var(--line);
+      padding: 38px 0 42px;
     }
 
-    .section-heading {
+    .section-head {
       display: grid;
-      grid-template-columns: 170px 1fr;
+      grid-template-columns: 190px 1fr;
       gap: 28px;
       margin-bottom: 24px;
       align-items: start;
@@ -178,413 +184,376 @@
 
     h2 {
       margin: 0;
-      font-size: 15px;
-      line-height: 1.4;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
       color: var(--accent);
+      font-size: 14px;
+      line-height: 1.4;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
     }
 
-    .section-intro {
+    .section-copy {
+      max-width: 730px;
       margin: 0;
-      max-width: 720px;
       font-size: 17px;
     }
 
-    .method-note {
-      margin: 22px 0 0 198px;
-      padding: 16px 18px;
-      border-left: 3px solid var(--accent);
-      background: var(--soft);
-      color: #343230;
-      font-size: 15px;
-    }
-
-    .research-list {
-      border-top: 1px solid var(--line);
-    }
-
-    .research-item {
+    .interest-grid {
       display: grid;
-      grid-template-columns: 170px 1fr;
-      gap: 28px;
-      padding: 27px 0 30px;
-      border-bottom: 1px solid var(--line);
+      grid-template-columns: repeat(3, 1fr);
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      overflow: hidden;
     }
 
-    .meta {
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.5;
+    .interest {
+      padding: 20px 21px 22px;
+      background: var(--soft);
     }
 
-    .meta strong {
-      display: block;
-      margin-bottom: 4px;
-      color: #393633;
-      font-weight: 700;
-    }
+    .interest + .interest { border-left: 1px solid var(--line); }
 
-    h3 {
-      margin: 0 0 8px;
-      font-size: 21px;
+    .interest h3,
+    .project h3 {
+      margin: 0 0 7px;
+      font-size: 17px;
       line-height: 1.35;
-      letter-spacing: -0.015em;
+      letter-spacing: -0.01em;
     }
 
-    .research-item p,
+    .interest p,
     .project p {
       margin: 0;
-      max-width: 730px;
+      color: #3f3c38;
+      font-size: 14px;
+      line-height: 1.58;
     }
 
-    .inline-links {
-      display: flex;
-      gap: 12px;
-      margin-top: 10px;
-      font-size: 14px;
+    .news-list,
+    .pub-list {
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .news-item {
+      display: grid;
+      grid-template-columns: 125px 1fr;
+      gap: 18px;
+      padding: 15px 18px;
+      align-items: baseline;
+    }
+
+    .news-item + .news-item,
+    .pub + .pub { border-top: 1px solid var(--soft-line); }
+
+    .news-date {
+      color: var(--muted);
+      font-size: 13px;
       font-weight: 600;
     }
 
-    .pub-list {
-      border-top: 1px solid var(--line);
-    }
+    .news-item p { margin: 0; }
 
     .pub {
-      padding: 22px 0 24px;
-      border-bottom: 1px solid var(--line);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      padding: 19px 18px 20px;
+      align-items: start;
     }
 
     .pub-title {
       margin: 0 0 5px;
-      font-weight: 700;
       font-size: 17px;
-      line-height: 1.45;
+      font-weight: 700;
+      line-height: 1.4;
     }
 
     .pub-authors,
-    .pub-venue {
+    .pub-note {
       margin: 2px 0;
-      color: #4f4c48;
+      color: #4a4641;
       font-size: 14px;
     }
 
-    .pub-venue { color: var(--muted); }
+    .pub-note { color: var(--muted); }
 
-    .projects {
+    .status {
+      display: inline-block;
+      padding: 4px 8px;
+      border: 1px solid #cfc7bf;
+      border-radius: 999px;
+      color: #544f49;
+      background: var(--soft);
+      font-size: 12px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .project-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 18px;
+      gap: 14px;
     }
 
     .project {
-      padding: 22px;
+      padding: 20px 21px 22px;
       border: 1px solid var(--line);
-      border-radius: 10px;
+      border-radius: 9px;
       background: #fff;
     }
 
-    .project h3 { font-size: 18px; }
-
-    .small {
+    .project-meta {
+      margin: 0 0 8px;
       color: var(--muted);
-      font-size: 14px;
-    }
-
-    .personal {
-      max-width: 760px;
-      margin-left: 198px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
     }
 
     footer {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 0 24px 42px;
+      border-top: 1px solid var(--line);
+      padding: 20px 28px 24px;
       color: var(--muted);
       font-size: 13px;
     }
 
-    @media (max-width: 760px) {
-      nav {
-        align-items: flex-start;
-        padding-top: 14px;
-        padding-bottom: 14px;
+    @media (max-width: 790px) {
+      .site-shell {
+        width: min(calc(100% - 20px), var(--max));
+        margin: 10px auto;
+        border-radius: 10px;
       }
 
-      .nav-links {
-        gap: 13px;
-        flex-wrap: wrap;
-        justify-content: flex-end;
-      }
+      nav { padding: 14px 18px; }
+      main { padding-left: 18px; padding-right: 18px; }
+      footer { padding-left: 18px; padding-right: 18px; }
 
-      main { padding-top: 42px; }
+      .nav-links { gap: 13px; }
 
       .hero {
         grid-template-columns: 1fr;
-        gap: 28px;
+        gap: 25px;
+        padding-top: 38px;
       }
 
       .profile-pic {
         grid-row: 1;
-        width: 150px;
-        height: 150px;
+        width: 145px;
+        height: 145px;
       }
 
-      .section-heading,
-      .research-item {
+      .section-head {
         grid-template-columns: 1fr;
-        gap: 10px;
+        gap: 9px;
       }
 
-      .method-note,
-      .personal {
-        margin-left: 0;
-      }
-
-      .projects { grid-template-columns: 1fr; }
+      .interest-grid,
+      .project-grid { grid-template-columns: 1fr; }
+      .interest + .interest { border-left: 0; border-top: 1px solid var(--line); }
+      .pub { grid-template-columns: 1fr; gap: 8px; }
     }
 
-    @media (max-width: 520px) {
-      .nav-links a:nth-child(3) { display: none; }
-      main { padding-left: 18px; padding-right: 18px; }
-      nav, footer { padding-left: 18px; padding-right: 18px; }
+    @media (max-width: 560px) {
+      .nav-links a:nth-child(3),
+      .nav-links a:nth-child(5) { display: none; }
+      .news-item { grid-template-columns: 1fr; gap: 3px; }
       .hero p { font-size: 17px; }
       h1 { font-size: 43px; }
     }
   </style>
 </head>
 <body>
-  <div class="nav-wrap">
-    <nav aria-label="Primary navigation">
-      <a class="brand" href="#top">Weijie Zhou</a>
-      <div class="nav-links">
-        <a href="#research">Research</a>
-        <a href="#publications">Publications</a>
-        <a href="#projects">Projects</a>
-      </div>
-    </nav>
-  </div>
-
-  <main id="top">
-    <header class="hero">
-      <div>
-        <p class="eyebrow">Cornell University</p>
-        <h1>Weijie Zhou</h1>
-        <p class="role">B.A. Computer Science &amp; Mathematics · Expected May 2027</p>
-
-        <p>
-          I work on language models and interactive AI systems. My research focuses on how models revise earlier decisions,
-          how they use computation during long reasoning, and how they learn user preferences from lightweight feedback.
-        </p>
-        <p>
-          At Cornell, I work with
-          <a href="https://www.cs.cornell.edu/people/tj/" target="_blank" rel="noopener">Thorsten Joachims</a>,
-          <a href="https://yoavartzi.com/" target="_blank" rel="noopener">Yoav Artzi</a>, and
-          <a href="https://as.cornell.edu/people/daniel-halpern-leistner" target="_blank" rel="noopener">Daniel Halpern-Leistner</a>.
-        </p>
-
-        <div class="hero-links">
-          <a class="button primary" href="mailto:wz388@cornell.edu">Email</a>
-          <a class="button" href="https://github.com/Cloooooooouuuud" target="_blank" rel="noopener">GitHub</a>
-          <a class="button" href="https://arxiv.org/abs/2601.21105" target="_blank" rel="noopener">SteerEval</a>
+  <div class="site-shell">
+    <div class="nav-wrap">
+      <nav aria-label="Primary navigation">
+        <a class="brand" href="#about">Weijie Zhou</a>
+        <div class="nav-links">
+          <a href="#about">About</a>
+          <a href="#interests">Research</a>
+          <a href="#news">News</a>
+          <a href="#publications">Publications</a>
+          <a href="#projects">Projects</a>
         </div>
-      </div>
+      </nav>
+    </div>
 
-      <img src="selfie.png" class="profile-pic" alt="Portrait of Weijie Zhou">
-    </header>
+    <main>
+      <header class="hero" id="about">
+        <div>
+          <p class="eyebrow">Cornell University</p>
+          <h1>Weijie Zhou</h1>
+          <p class="role">B.A. Computer Science &amp; Mathematics · Expected May 2027</p>
 
-    <section id="research">
-      <div class="section-heading">
-        <h2>Research</h2>
-        <p class="section-intro">
-          I study decision-making in AI systems: when a model should continue, revise an earlier choice, ask for feedback,
-          or change its behavior after a user instruction. I build evaluations where the relevant decision can be checked directly.
-        </p>
-      </div>
+          <p>
+            I am a senior at Cornell studying computer science and mathematics. I work on language models and interactive AI systems,
+            especially decision revision, long-horizon reasoning, human feedback, and evaluation.
+          </p>
+          <p>
+            At Cornell, I work with
+            <a href="https://www.cs.cornell.edu/people/tj/" target="_blank" rel="noopener">Thorsten Joachims</a>,
+            <a href="https://yoavartzi.com/" target="_blank" rel="noopener">Yoav Artzi</a>, and
+            <a href="https://as.cornell.edu/people/daniel-halpern-leistner" target="_blank" rel="noopener">Daniel Halpern-Leistner</a>.
+          </p>
 
-      <p class="method-note">
-        I use solver-verified or known-ground-truth tasks when possible, test failure modes before reporting a result,
-        and run controlled multi-seed experiments with success criteria specified in advance.
-      </p>
-
-      <div class="research-list">
-        <article class="research-item">
-          <div class="meta">
-            <strong>Language-model reasoning</strong>
-            First author<br>
-            Under review, ICLR 2027
+          <div class="hero-links">
+            <a class="button primary" href="mailto:wz388@cornell.edu">Email</a>
+            <a class="button" href="https://github.com/Cloooooooouuuud" target="_blank" rel="noopener">GitHub</a>
+            <a class="button" href="https://arxiv.org/abs/2601.21105" target="_blank" rel="noopener">SteerEval</a>
           </div>
-          <div>
-            <h3>Decision backtracking in language models</h3>
-            <p>
-              Can a model revise an earlier decision when local improvements are no longer enough? We built solver-verified
-              Sudoku, nurse-scheduling, and vehicle-routing tasks with controlled starting histories. Gemma4-12B changed the
-              planted scheduling decision in 56% of episodes but reached the optimum in 0/28, separating revision from successful optimization.
-            </p>
-            <div class="inline-links"><span>with Anne Wu, Giovanni Monea, and Yoav Artzi</span></div>
-          </div>
-        </article>
+        </div>
 
-        <article class="research-item">
-          <div class="meta">
-            <strong>Human feedback</strong>
-            Ongoing
+        <img src="selfie.png" class="profile-pic" alt="Portrait of Weijie Zhou">
+      </header>
+
+      <section id="interests">
+        <div class="section-head">
+          <h2>Research interests</h2>
+          <p class="section-copy">
+            I am interested in three connected problems: how models revise earlier decisions and decide how long to reason;
+            how users can steer model behavior and teach preferences through lightweight feedback; and how evaluations can
+            distinguish genuine improvement from artifacts of the metric or benchmark.
+          </p>
+        </div>
+
+        <div class="interest-grid">
+          <div class="interest">
+            <h3>Reasoning and revision</h3>
+            <p>When should a model continue, stop, or change an earlier decision? I study these choices with tasks where the relevant state or optimum can be checked directly.</p>
           </div>
-          <div>
+          <div class="interest">
+            <h3>Human feedback and steerability</h3>
+            <p>How can a system learn what a user wants from ordinary language, accept/reject decisions, and comparisons, then carry that preference to later tasks?</p>
+          </div>
+          <div class="interest">
+            <h3>Reliable evaluation</h3>
+            <p>I test whether a metric measures the behavior it claims to measure, with controls for extraction error, perturbation choice, and simple baselines.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="news">
+        <div class="section-head">
+          <h2>News</h2>
+          <p class="section-copy">Recent research updates.</p>
+        </div>
+
+        <div class="news-list">
+          <div class="news-item">
+            <div class="news-date">Sep 2026</div>
+            <p>New manuscript on decision backtracking in language models; preprint forthcoming.</p>
+          </div>
+          <div class="news-item">
+            <div class="news-date">Aug 2026</div>
+            <p>Reached the top 20 on the ARC-AGI-3 competition leaderboard with an interactive agent using memory-preserving restarts and failure analysis.</p>
+          </div>
+          <div class="news-item">
+            <div class="news-date">2026</div>
+            <p><a href="https://arxiv.org/abs/2601.21105" target="_blank" rel="noopener">SteerEval</a> is available on arXiv.</p>
+          </div>
+          <div class="news-item">
+            <div class="news-date">Spring 2026</div>
+            <p>Started research with the Yoav Artzi Group and Cornell Math+AI Lab.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="publications">
+        <div class="section-head">
+          <h2>Publications &amp; manuscripts</h2>
+          <p class="section-copy">Published work and current manuscripts. Venue names are omitted for manuscripts under anonymous review.</p>
+        </div>
+
+        <div class="pub-list">
+          <article class="pub">
+            <div>
+              <p class="pub-title">Keep Refining Is Not Enough: Decision Backtracking in Language Models</p>
+              <p class="pub-authors"><strong>Weijie Zhou</strong>, Anne Wu, Giovanni Monea, Yoav Artzi</p>
+              <p class="pub-note">Separates whether a model revises an earlier decision from whether it succeeds after revising it.</p>
+            </div>
+            <span class="status">Under review</span>
+          </article>
+
+          <article class="pub">
+            <div>
+              <p class="pub-title"><a href="https://arxiv.org/abs/2601.21105" target="_blank" rel="noopener">SteerEval: A Framework for Evaluating Steerability with Natural Language Profiles for Recommendation</a></p>
+              <p class="pub-authors">Joyce Zhou, <strong>Weijie Zhou</strong>, Doug Turnbull, Thorsten Joachims</p>
+              <p class="pub-note">Tests whether natural-language-profile recommenders respond to requested changes in user preferences.</p>
+            </div>
+            <span class="status">arXiv 2026</span>
+          </article>
+
+          <article class="pub">
+            <div>
+              <p class="pub-title">Auditing Path-Level Chain-of-Thought Consistency Metrics: Pitfalls of Solution Path Instability</p>
+              <p class="pub-authors"><strong>Weijie Zhou</strong></p>
+              <p class="pub-note">Audits path-level reasoning-stability metrics against extractor reliability, perturbation choice, and uncertainty baselines.</p>
+            </div>
+            <span class="status">Under review</span>
+          </article>
+
+          <article class="pub">
+            <div>
+              <p class="pub-title">Causal Pretraining of World Models with Real Dynamical Interventions</p>
+              <p class="pub-authors"><strong>Weijie Zhou</strong></p>
+              <p class="pub-note">Uses real interventions and matched counterfactual trajectories to test what causal pretraining objectives learn.</p>
+            </div>
+            <span class="status">Under review</span>
+          </article>
+        </div>
+      </section>
+
+      <section id="projects">
+        <div class="section-head">
+          <h2>Current projects</h2>
+          <p class="section-copy">Ongoing work that is not represented by a separate publication entry above.</p>
+        </div>
+
+        <div class="project-grid">
+          <article class="project">
+            <p class="project-meta">Human feedback · Thorsten Joachims Group</p>
             <h3>Interactive editing with learned writing preferences</h3>
             <p>
-              Can a writing assistant learn a user's preferences from accepted, rejected, and user-written edits? We represent
-              preferences with interpretable weighted criteria and update them from interaction. In simulation, combining
-              accept/reject and comparative feedback raised held-out choice prediction from 46.4% to 73.3%.
+              A writing assistant learns interpretable preference weights from accepted, rejected, comparative, and user-written edits.
+              In simulation, combining accept/reject and comparative feedback raised held-out choice prediction from 46.4% to 73.3%.
             </p>
-            <div class="inline-links"><span>with Joyce Zhou and Thorsten Joachims</span></div>
-          </div>
-        </article>
+          </article>
 
-        <article class="research-item">
-          <div class="meta">
-            <strong>Steerability</strong>
-            Second author<br>
-            arXiv 2026
-          </div>
-          <div>
-            <h3>SteerEval: evaluating steerable recommenders</h3>
-            <p>
-              Do recommenders driven by natural-language profiles actually respond to steering commands? I helped build the
-              LLM evaluation pipeline, human-grounded steering tags, sampling methods, and steerability metrics used to measure
-              whether a requested preference change produces the intended ranking change.
-            </p>
-            <div class="inline-links">
-              <a href="https://arxiv.org/abs/2601.21105" target="_blank" rel="noopener">Paper</a>
-            </div>
-          </div>
-        </article>
-
-        <article class="research-item">
-          <div class="meta">
-            <strong>Latent reasoning</strong>
-            Ongoing
-          </div>
-          <div>
+          <article class="project">
+            <p class="project-meta">Reasoning · Cornell Math+AI Lab</p>
             <h3>Latent reasoning with learned stopping</h3>
             <p>
-              I train small recurrent models that solve Sudoku, modular arithmetic, and graph algorithms by refining a hidden
-              state over multiple steps and learning when to stop. On shortest-path and minimum-spanning-tree tasks, changing
-              the output representation raised accuracy from roughly 20–50% to above 90%.
+              I train small recurrent models that refine a hidden state over multiple steps and learn when to stop on Sudoku, modular arithmetic,
+              and graph algorithms. Changing the output representation raised shortest-path and MST accuracy from roughly 20–50% to above 90%.
             </p>
-            <div class="inline-links"><span>Math+AI Lab · with Daniel Halpern-Leistner</span></div>
-          </div>
-        </article>
+          </article>
 
-        <article class="research-item">
-          <div class="meta">
-            <strong>Evaluation</strong>
-            First author<br>
-            Under review, AAAI-27
-          </div>
-          <div>
-            <h3>Auditing path-level chain-of-thought consistency metrics</h3>
+          <article class="project">
+            <p class="project-meta">Interactive agents · ARC-AGI-3</p>
+            <h3>Learning rules from action feedback</h3>
             <p>
-              I tested whether reasoning-path stability is a useful reliability signal using Solution Path Instability as a case study.
-              Simple uncertainty baselines predicted errors better. The audit identified three structural problems: undefined-case
-              defaults distort results, extractor reliability limits validity, and perturbation type can dominate the score.
+              I built an agent for unfamiliar interactive games with visual-first interaction, stall detection, memory-preserving restarts,
+              and trajectory-level failure analysis. The system matched a strong baseline with about 70% fewer actions.
             </p>
-          </div>
-        </article>
+          </article>
 
-        <article class="research-item">
-          <div class="meta">
-            <strong>World models</strong>
-            First author<br>
-            Under review, AAAI-27
-          </div>
-          <div>
-            <h3>Causal pretraining with real interventions</h3>
+          <article class="project">
+            <p class="project-meta">Evaluation methodology</p>
+            <h3>How I evaluate model behavior</h3>
             <p>
-              I replaced masking-based interventions with controlled changes to a physics simulator and generated matched
-              counterfactual trajectories using shared random seeds. The experiments separate intervention detection from
-              counterfactual prediction and show that a standard counterfactual error can be beaten by copying the input.
+              I prefer tasks with known ground truth, solver-verified actions, matched interventions, simple baselines, and multi-seed experiments.
+              I try to identify the failure mode that would invalidate a result before treating the result as evidence.
             </p>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section id="publications">
-      <div class="section-heading">
-        <h2>Publications</h2>
-        <p class="section-intro">Publications and current manuscripts.</p>
-      </div>
-
-      <div class="pub-list">
-        <article class="pub">
-          <p class="pub-title">Keep Refining Is Not Enough: Decision Backtracking in Language Models</p>
-          <p class="pub-authors"><strong>Weijie Zhou</strong>, Anne Wu, Giovanni Monea, Yoav Artzi</p>
-          <p class="pub-venue">Under review at ICLR 2027 · arXiv preprint forthcoming</p>
-        </article>
-
-        <article class="pub">
-          <p class="pub-title"><a href="https://arxiv.org/abs/2601.21105" target="_blank" rel="noopener">SteerEval: A Framework for Evaluating Steerability with Natural Language Profiles for Recommendation</a></p>
-          <p class="pub-authors">Joyce Zhou, <strong>Weijie Zhou</strong>, Doug Turnbull, Thorsten Joachims</p>
-          <p class="pub-venue">arXiv:2601.21105, 2026 · <a href="https://arxiv.org/abs/2601.21105" target="_blank" rel="noopener">paper</a></p>
-        </article>
-
-        <article class="pub">
-          <p class="pub-title">Auditing Path-Level Chain-of-Thought Consistency Metrics: Pitfalls of Solution Path Instability</p>
-          <p class="pub-authors"><strong>Weijie Zhou</strong></p>
-          <p class="pub-venue">Under review at AAAI-27</p>
-        </article>
-
-        <article class="pub">
-          <p class="pub-title">Causal Pretraining of World Models with Real Dynamical Interventions</p>
-          <p class="pub-authors"><strong>Weijie Zhou</strong></p>
-          <p class="pub-venue">Under review at AAAI-27</p>
-        </article>
-      </div>
-    </section>
-
-    <section id="projects">
-      <div class="section-heading">
-        <h2>Other projects</h2>
-        <p class="section-intro">A few projects outside the publication list.</p>
-      </div>
-
-      <div class="projects">
-        <article class="project">
-          <h3>ARC-AGI-3, 2026</h3>
-          <p>
-            Built agents that infer rules of unfamiliar interactive games from visual observations and action feedback.
-            A Qwen-based harness with stall detection and memory-preserving restarts matched a strong baseline with about
-            70% fewer actions. Reached the top 20 on the leaderboard in August 2026.
-          </p>
-        </article>
-
-        <article class="project">
-          <h3>ARC-AGI, 2025</h3>
-          <p>
-            Built an open-weight LLM pipeline for abstract grid reasoning using vLLM and LoRA fine-tuning, then implemented
-            a STaR/DeepSeek-R1-style reinforcement-learning loop with symbolic grid evaluation and failure analysis.
-          </p>
-        </article>
-      </div>
-    </section>
-
-    <section id="personal">
-      <div class="section-heading">
-        <h2>Outside research</h2>
-        <div class="personal">
-          <p>
-            I ski, follow Formula 1 and Ferrari, read the poetry of
-            <a href="https://en.wikipedia.org/wiki/Haizi" target="_blank" rel="noopener">Hai Zi (海子)</a>,
-            and play Pokémon TCG.
-          </p>
+          </article>
         </div>
-      </div>
-    </section>
-  </main>
+      </section>
+    </main>
 
-  <footer>
-    <a href="mailto:wz388@cornell.edu">wz388@cornell.edu</a> · Ithaca, New York · Updated September 2026
-  </footer>
+    <footer>
+      <a href="mailto:wz388@cornell.edu">wz388@cornell.edu</a> · Ithaca, New York · Updated September 2026
+    </footer>
+  </div>
 </body>
 </html>
